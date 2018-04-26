@@ -1,0 +1,40 @@
+.oui-grid {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-column-gap: rem-calc(20);
+  grid-auto-flow: row;
+  grid-row-gap: rem-calc(20);
+
+  &__cell {
+    grid-column: span 2;
+
+    &_1-2 { grid-column: span 3; }
+
+    &_2-3 { grid-column: span 4; }
+
+    &_3-3 { grid-column: span 6; }
+  }
+
+  /* stylelint-disable indentation */
+  .tablet({
+    grid-template-columns: auto auto;
+
+    &__cell,
+    &__cell_1-2,
+    &__cell_2-3,
+    &__cell_3-3 { grid-column: span 2; }
+  });
+  /* stylelint-enable indentation */
+
+
+  /* stylelint-disable indentation */
+  .phone({
+    grid-template-columns: auto;
+
+    &__cell,
+    &__cell_1-2,
+    &__cell_2-3,
+    &__cell_3-3 { grid-column: span 1; }
+  });
+  /* stylelint-enable indentation */
+}
