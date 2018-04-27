@@ -1,0 +1,17 @@
+@import "./_variables";
+
+#oui {
+  .grid-loop (@i) when (@i > 1) {
+    &.oui-grid-@{i} > * {
+      width: unit(100 / @i, %);
+    }
+    .grid-loop(@i - 1);
+  }
+
+  .grid-col-loop (@i) when (@i > 0) {
+    .oui-grid-col-@{i} {
+      flex: 1 1 unit((100 / @oui-grid-column-number) * @i, %);
+    }
+    .grid-col-loop(@i - 1);
+  }
+}
